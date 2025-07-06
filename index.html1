@@ -1,3 +1,24 @@
+# FILE HANDLING PROGRAM
+
+*COMPANY NAME* : CODTECH IT SOLUTIONS PVT.LTD
+
+*NAME* : PANKAJ SINGH
+
+*INTERN CODE* : CT04DF19
+
+*DOMAIN* : C Programming
+
+*DURATION* : 4 WEEKS
+
+*MENTOR* : Neela Santhosh Kumar 
+
+* I AM USING THE VS CODE *
+
+
+*THE CODE IS* ::
+
+
+
 #include <stdio.h>
 #include <stdlib.h>
 
