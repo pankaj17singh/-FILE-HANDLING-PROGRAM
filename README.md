@@ -1,1 +1,75 @@
 # -FILE-HANDLING-PROGRAM
+#include <stdio.h>
+#include <stdlib.h>
+
+void create_and_write_file(const char *filename) {
+    FILE *fp = fopen(filename, "w");  // Create or overwrite the file
+    if (fp == NULL) {
+        perror("Error creating file");
+        return;
+    }
+    fprintf(fp, "This is the first line written to the file.\n");
+    fprintf(fp, "File creation and writing successful.\n");
+    fclose(fp);
+    printf("File created and data written successfully.\n");
+}
+
+void append_to_file(const char *filename) {
+    FILE *fp = fopen(filename, "a");  // Open for appending
+    if (fp == NULL) {
+        perror("Error opening file for appending");
+        return;
+    }
+    fprintf(fp, "This is an appended line.\n");
+    fclose(fp);
+    printf("Data appended successfully.\n");
+}
+
+void read_file(const char *filename) {
+    FILE *fp = fopen(filename, "r");  // Open for reading
+    char ch;
+    if (fp == NULL) {
+        perror("Error reading file");
+        return;
+    }
+    printf("\nContents of the file:\n");
+    while ((ch = fgetc(fp)) != EOF) {
+        putchar(ch);
+    }
+    fclose(fp);
+}
+
+int main() {
+    const char *filename = "example.txt";
+
+    int choice;
+    do {
+        printf("\nFile Operations Menu:\n");
+        printf("1. Create and Write to File\n");
+        printf("2. Append to File\n");
+        printf("3. Read File\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        getchar(); // Clear newline character from input buffer
+
+        switch (choice) {
+            case 1:
+                create_and_write_file(filename);
+                break;
+            case 2:
+                append_to_file(filename);
+                break;
+            case 3:
+                read_file(filename);
+                break;
+            case 4:
+                printf("Exiting program.\n");
+                break;
+            default:
+                printf("Invalid choice. Try again.\n");
+        }
+    } while (choice != 4);
+
+    return 0;
+}
